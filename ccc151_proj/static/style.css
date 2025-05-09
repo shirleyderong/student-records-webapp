@@ -1,0 +1,522 @@
+/* General body styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: rgba(54, 55, 57, 0.3); /* Slight transparency */
+    backdrop-filter: blur(15px); /* Blurred effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+/* Wipe effect for text */
+.text-wipe {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0;
+    animation: wipeText 1.5s ease-out forwards;
+}
+
+@keyframes wipeText {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes wipeBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.btn-wipe-bottom {
+    opacity: 0;
+    animation: wipeBottom 0.8s ease-out forwards;
+}
+
+/* Fade-in and zoom-in animation */
+@keyframes fadeInZoom {
+    0% {
+        transform: scale(0.8); /* Start slightly smaller */
+        opacity: 0;            /* Start fully transparent */
+    }
+    100% {
+        transform: scale(1);   /* End at normal size */
+        opacity: 1;            /* End fully visible */
+    }
+}
+
+.homepage-gif {
+    position: absolute;
+    top: clamp(10vh, 14vh, 18vh);
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(150px, 22vw, 280px);
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+    
+    animation: enterFloat 1s ease-out, float 3s ease-in-out infinite;
+}
+
+/* Initial fade/scale-in animation */
+@keyframes enterFloat {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+    }
+}
+
+/* Continuous floating animation */
+@keyframes float {
+    0%   { transform: translate(-50%, 0); }
+    50%  { transform: translate(-50%, -1vh); }
+    100% { transform: translate(-50%, 0); }
+}
+
+
+.title {
+    font-size: clamp(1.5rem, 5vw, 3rem); /* Responsive font size */
+    text-align: center;
+    z-index: 1; /* Ensures title is below the GIF */
+}
+
+/* Footer Style */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #252934; /* Dark background for the footer */
+    color: white;               /* White text */
+    text-align: center;         /* Center the text */
+    padding: 10px;              /* Padding around the text */
+    font-size: 14px;            /* Slightly smaller text */
+    font-weight: 400;           /* Normal weight */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on top */
+    z-index: 10;                /* Ensure it is on top */
+}
+
+    .back-home-btn {
+        padding: 10px 10px;
+        background-color: #ffffff; 
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 0px;  
+        left: 15px;
+        z-index: 10;
+    }
+
+    #bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        z-index: -1; /* Pushes it behind all other content */
+        opacity: 0.7; /* Optional: makes overlay content more visible */
+    }    
+
+    .back-home-btn:hover {
+        background-color: #f03535;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Smooth animation for the background gradient */
+    @keyframes gradientMove {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+/* Button Styling */
+.add-record-btn {
+    padding: 15px 30px;
+    background-color: #252934; /* Add Record */
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.add-record-btn:hover {
+    background-color: #ffffff;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-search {
+    padding: 15px 30px;
+    background-color: #252934; /* Search */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-search:hover {
+    background-color: #ffffff;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-update {
+    padding: 15px 30px;
+    background-color: #252934; /* Update */
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-update:hover {
+    background-color: #ffffff;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-delete {
+    padding: 15px 30px;
+    background-color: #252934; /* Delete */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-delete:hover {
+    background-color: #ffffff;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-view {
+    padding: 15px 30px;
+    background-color: #252934; /* View All Students */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-view:hover {
+    background-color: #ffffff;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Button Styles for Add Record Page */
+.btn-submit {
+    padding: 15px 30px;
+    background-color: #252934;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit:hover {
+    background-color: #0ADD08;
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Button Styles for Search Page */
+.btn-search2 {
+    padding: 15px 30px;
+    background-color: #252934;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-search2:hover {
+    background-color: #0ADD08;
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Button Styles for Update Page */
+.btn-update2 {
+    padding: 15px 30px;
+    background-color: #252934;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-update2:hover {
+    background-color: #0ADD08;
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Button Styles for Delete Page */
+.btn-delete2 {
+    padding: 15px 30px;
+    background-color: #252934;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-delete2:hover {
+    background-color: #f03535;
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Button Styles for Students List Page */
+.btn-export {
+    padding: 10px 10px;
+    background-color: #252934;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 30px;  
+    right: 35px;
+    z-index: 10;
+}
+
+.btn-export:hover {
+    background-color: #0ADD08;
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Styling */
+.card {
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent white */
+    backdrop-filter: blur(10px); /* Apply the blur effect */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* Subtle shadow */
+    border-radius: 12px;
+    padding: 20px 30px;
+    margin: 0px;
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover effect for card */
+.card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18); /* Stronger shadow on hover */
+    transform: translateY(-10px); /* Elevates card on hover */
+}
+
+
+    /* Card Header */
+    .card h2 {
+        font-size: 26px;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Card Text */
+    .card p {
+        color: #555;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    /* Flex layout for card content */
+    .card-content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    /* Responsive Design for smaller screens */
+    @media (max-width: 768px) {
+        body {
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            animation: none; /* Stop animation on mobile */
+        }
+
+        .card {
+            padding: 25px;
+            max-width: 90%;
+            margin: 10px;
+        }
+
+        .add-record-btn {
+            padding: 12px 25px;
+            font-size: 16px;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .card h2 {
+            font-size: 22px;
+        }
+
+        .card p {
+            font-size: 14px;
+        }
+    }
+
+/* Pagination Styling */
+.pagination {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.pagination .btn {
+    padding: 12px 24px;
+    background-color: #252934;  
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pagination .btn:hover {
+    background-color: #ffffff;  
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.pagination .btn:disabled {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    pointer-events: none; /* Disable click events */
+}
+
+.pagination .btn-primary {
+    background-color: #252934;  /* Base color for active page button */
+    color: white;
+}
+
+.pagination .btn-primary:hover {
+    background-color: #ffffff;  /* Hover color for active button */
+    color: black;
+}
+
+.pagination .btn-outline-primary {
+    border: 1px solid #6c757d;
+    color: #ffffff;
+}
+
+.pagination .btn-outline-primary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+.pagination .btn-outline-secondary {
+    border: 1px solid #6c757d;
+    color: #6c757d;
+}
+
+.pagination .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+.pagination .disabled {
+    pointer-events: none;
+}
+

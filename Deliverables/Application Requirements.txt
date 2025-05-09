@@ -1,0 +1,37 @@
+CCS Student Records System Requirements
+
+1. HARDWARE REQUIREMENTS
+
+Minimum:
+- Processor: Intel Core i3 / AMD Ryzen 3
+- RAM: 4 GB
+- Storage: 500 MB free space
+- Display: 1024x768 resolution
+- Others: Keyboard, Mouse
+
+Recommended:
+- Processor: Intel Core i5+ / AMD Ryzen 5+
+- RAM: 8 GB or more
+- Storage: 1 GB+ SSD (for better performance)
+- Display: 1920x1080
+
+
+2. SOFTWARE REQUIREMENTS
+
+- Operating System: Windows 10+, macOS, or Linux
+- Backend: Python 3.8+
+- Framework: Flask
+- Encryption Library: cryptography (Fernet)
+- Database: SQLite
+- Frontend: HTML, CSS, JavaScript, Bootstrap
+- Code Editor/IDE: VS Code
+- Version Control: Git & GitHub
+- Web Browser: Chrome (for testing the app)
+
+
+3. PEOPLEWARE REQUIREMENTS
+
+- Developer: Responsible for coding and maintaining the system
+- Tester/QA: Tests for bugs, functionality, and usability
+- Instructor: Reviews, tests, and provides feedback
+- End Users: Students, Admins, and possibly Teachers using the application

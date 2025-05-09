@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card p-4">
+    <h3 class="mb-4">List of All Students</h3>
+
+    <!-- Button to export students to CSV -->
+    <a href="{{ url_for('export_csv') }}" class="btn btn-export">Export as CSV</a>
+
+    <!-- Table to display students -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID Number</th>
+                <th>Name</th>
+                <th>Program</th>
+                <th>Year Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.id_number }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.program }}</td>
+                <td>{{ student.year_level }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4">No students found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+<div class="pagination mt-4 text-center">
+    {% if page > 1 %}
+        <a href="{{ url_for('students', page=page-1) }}" class="btn btn-outline-primary">Previous</a>
+    {% endif %}
+
+    {% for p in range(1, total_pages + 1) %}
+        {% if p == page %}
+            <span class="btn btn-primary disabled">{{ p }}</span>
+        {% else %}
+            <a href="{{ url_for('students', page=p) }}" class="btn btn-outline-secondary">{{ p }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page < total_pages %}
+        <a href="{{ url_for('students', page=page+1) }}" class="btn btn-outline-primary">Next</a>
+    {% endif %}
+</div>
+
+    <!-- Link to go back to the homepage -->
+    <a href="/" class="back-home-btn mt-3">⛌</a>
+</div>
+{% endblock %}

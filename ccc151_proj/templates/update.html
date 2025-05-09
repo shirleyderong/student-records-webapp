@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card p-4">
+
+  <!-- Display error message if student does not exist -->
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  {% endif %}
+
+  <!-- Display success message if student update is successful -->
+  {% if success %}
+    <div class="alert alert-success" role="alert">
+      {{ success }}
+    </div>
+  {% endif %}
+
+  <form method="POST">
+    <div class="mb-3">
+      <label for="id_number" class="form-label">Input ID Number (of student you want to update)</label>
+      <div class="d-flex flex-wrap gap-2 mb-2">
+        <!-- ID Number Input Fields -->
+        <input type="text" class="form-control" id="id_number_1" name="id_number_1" maxlength="1" required placeholder="Y" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_2" name="id_number_2" maxlength="1" required placeholder="Y" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_3" name="id_number_3" maxlength="1" required placeholder="Y" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_4" name="id_number_4" maxlength="1" required placeholder="Y" style="width:40px;">
+        <span>-</span>
+        <input type="text" class="form-control" id="id_number_5" name="id_number_5" maxlength="1" required placeholder="X" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_6" name="id_number_6" maxlength="1" required placeholder="X" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_7" name="id_number_7" maxlength="1" required placeholder="X" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_8" name="id_number_8" maxlength="1" required placeholder="X" style="width:40px;">
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="first_name" class="form-label">New First Name</label>
+      <input type="text" class="form-control" id="first_name" name="first_name" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="middle_initial" class="form-label">New Middle Initial (optional)</label>
+      <input type="text" class="form-control" id="middle_initial" name="middle_initial">
+    </div>
+
+    <div class="mb-3">
+      <label for="last_name" class="form-label">New Last Name</label>
+      <input type="text" class="form-control" id="last_name" name="last_name" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="program" class="form-label">New Program</label>
+      <select class="form-select" id="program" name="program" required>
+        <option value="" disabled selected>Select New Program</option>
+        <option value="BS Computer Applications">BS Computer Applications</option>
+        <option value="BS Computer Science">BS Computer Science</option>
+        <option value="BS Information Systems">BS Information Systems</option>
+        <option value="BS Information Technology">BS Information Technology</option>
+      </select>
+    </div>    
+
+    <div class="mb-3">
+      <label for="year_level" class="form-label">New Year Level</label>
+      <select class="form-select" id="year_level" name="year_level" required>
+        <option value="" disabled selected>Select New Year Level</option>
+        <option value="1st Year">1st Year</option>
+        <option value="2nd Year">2nd Year</option>
+        <option value="3rd Year">3rd Year</option>
+        <option value="4th Year">4th Year</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-update2">Update Student</button>
+  </form>
+
+  <a href="/" class="back-home-btn mt-3">⛌</a>
+
+</div>
+{% endblock %}

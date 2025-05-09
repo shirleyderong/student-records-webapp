@@ -1,0 +1,11 @@
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install -r requirements.txt
+
+pip install flask cryptography
+
+python app.py
+
+cd C:\Users\Administrator\Desktop\CCC151_Final\ccc151_proj

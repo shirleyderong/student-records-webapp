@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block above_title %}
+<div class="text-center mb-3">
+    <img src="{{ url_for('static', filename='images/wolf dance.gif') }}" alt="wolf dance.gif" class="homepage-gif">
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <a href="#" class="btn add-record-btn m-2 btn-wipe-bottom" onclick="redirectWithSound('add', '/add')">Add Record</a>
+    <a href="#" class="btn btn-search m-2 btn-wipe-bottom" onclick="redirectWithSound('search', '/search')">Search</a>
+    <a href="#" class="btn btn-update m-2 btn-wipe-bottom" onclick="redirectWithSound('update', '/update')">Update</a>
+    <a href="#" class="btn btn-delete m-2 btn-wipe-bottom" onclick="redirectWithSound('delete', '/delete')">Delete</a>
+    <a href="#" class="btn btn-view m-2 btn-wipe-bottom" onclick="redirectWithSound('view', '/students')">View All Students</a>
+
+</div>
+
+<footer class="footer">
+    Shirley Mae S. Derong | CCC151 Final Project | shirleymae.derong@g.msuiit.edu.ph
+</footer>
+
+<script>
+    function redirectWithSound(soundKey, targetUrl) {
+        // Add the sound key as a query parameter
+        window.location.href = `${targetUrl}?play=${soundKey}`;
+    }
+</script>
+{% endblock %}

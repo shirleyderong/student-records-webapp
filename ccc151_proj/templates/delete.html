@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card p-4">
+
+  <!-- Display success or error message -->
+  {% if success %}
+    <div class="alert alert-success" role="alert">
+      {{ success }}
+    </div>
+  {% elif error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  {% endif %}
+
+  <form method="POST" id="deleteForm">
+    <div class="mb-3">
+      <label for="id_number" class="form-label">Student ID Number (YYYY-XXXX)</label>
+      <div class="d-flex flex-wrap gap-2 mb-2">
+        <!-- ID Number Input Fields -->
+        <input type="text" class="form-control" id="id_number_1" name="id_number_1" maxlength="1" required placeholder="Y" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_2" name="id_number_2" maxlength="1" required placeholder="Y" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_3" name="id_number_3" maxlength="1" required placeholder="Y" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_4" name="id_number_4" maxlength="1" required placeholder="Y" style="width:40px;">
+        <span>-</span>
+        <input type="text" class="form-control" id="id_number_5" name="id_number_5" maxlength="1" required placeholder="X" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_6" name="id_number_6" maxlength="1" required placeholder="X" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_7" name="id_number_7" maxlength="1" required placeholder="X" style="width:40px;">
+        <input type="text" class="form-control" id="id_number_8" name="id_number_8" maxlength="1" required placeholder="X" style="width:40px;">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-delete2">Delete Student</button>
+  </form>
+
+  <!-- Link to go back to the homepage -->
+  <a href="/" class="back-home-btn mt-3">⛌</a>
+
+</div>
+
+<script>
+  // Adding confirmation dialog before form submission
+  document.getElementById("deleteForm").addEventListener("submit", function(event) {
+    if (!confirm("Are you sure you want to delete this student?")) {
+      event.preventDefault();  // Prevent form submission if 'Cancel' is clicked
+    }
+  });
+</script>
+
+{% endblock %}
