@@ -22,7 +22,7 @@ if exist "requirements.txt" (
     )
 )
 
-echo [INFO] Starting your web application... \(>-<)/
+echo [INFO] Starting Derong's web application...
 python app.py
 if errorlevel 1 (
     echo [ERROR] Something went wrong while running app.py
